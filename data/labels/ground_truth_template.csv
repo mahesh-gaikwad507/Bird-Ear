@@ -1,0 +1,4 @@
+recording_path,start_time_seconds,end_time_seconds,species_name,label_status
+data/recordings/house_sparrow.wav,0,3,,needs_review
+data/recordings/house_sparrow.wav,3,6,,needs_review
+data/recordings/house_sparrow.wav,6,9,,needs_review

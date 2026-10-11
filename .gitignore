@@ -1,0 +1,34 @@
+﻿# Python virtual environments and caches
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+
+# Secrets and local environment settings
+.env
+.env.*
+!.env.example
+
+# Model weights and downloaded checkpoints
+weights/
+temp-tf-models/
+*.onnx
+*.h5
+*.keras
+*.ckpt
+*.pb
+
+# Generated features and experiment outputs
+data/results/
+data/recordings/*.npy
+data/recordings/*predictions*.csv
+
+# Audio recordings (keep out until intentionally selected)
+data/recordings/*.wav
+data/recordings/*.mp3
+
+# Local editor and operating-system files
+.vscode/
+.DS_Store
+Thumbs.db
