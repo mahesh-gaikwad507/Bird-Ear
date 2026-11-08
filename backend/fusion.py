@@ -1,4 +1,4 @@
-﻿
+
 from pathlib import Path
 
 import numpy as np
@@ -162,7 +162,7 @@ def fuse_modalities_by_window(
         Averages embeddings whose approximate start times fall in each window.
 
     EfficientNet:
-        Includes its recording-level vector in every window.
+        Uses window-level vectors when supplied, or repeats a recording-level vector.
 
     This function produces features, not a trained classifier or a calibrated
     fusion probability. VGGish timing is approximate and must be checked
@@ -180,25 +180,11 @@ def fuse_modalities_by_window(
         "EfficientNet", efficientnet_embeddings
     )
 
-    if efficientnet.shape[0] != 1:
-        raise ValueError(
-            "Expected one recording-level EfficientNet vector "
-            f"with shape (1, features); got {efficientnet.shape}."
-        )
-
     if birdnet.empty:
         raise ValueError(
             "BirdNET predictions are empty; a recording duration or "
             "explicit window range is needed to create windows."
         )
-
-    duration = float(birdnet["end_time"].max())
-    window_starts = np.arange(
-        0.0,
-        duration,
-        window_seconds,
-        dtype=np.float64,
-    )
 
     # Aggregate BirdNET confidence per window and species.
     birdnet["window_start_seconds"] = (
@@ -226,7 +212,23 @@ def fuse_modalities_by_window(
         vggish_std, 1e-6
     )
 
-    efficientnet_vector = efficientnet[0]
+    duration = float(birdnet["end_time"].max())
+    window_starts = np.arange(
+        0.0,
+        duration,
+        window_seconds,
+        dtype=np.float64,
+    )
+
+    expected_windows = len(window_starts)
+    if efficientnet.shape[0] not in (1, expected_windows):
+        raise ValueError(
+            "EfficientNet must contain either one recording-level vector "
+            "or one vector per fusion window; "
+            f"got {efficientnet.shape[0]} vectors for "
+            f"{expected_windows} windows."
+        )
+
     rows = []
 
     for window_start in window_starts:
@@ -264,7 +266,13 @@ def fuse_modalities_by_window(
         for index, value in enumerate(vggish_vector):
             row[f"vggish_{index:03d}"] = float(value)
 
-        # EfficientNet is recording-level, so repeat it for each window.
+        # Use the matching window vector when available; otherwise use
+        # the single recording-level vector for backward compatibility.
+        efficientnet_vector = (
+            efficientnet[0]
+            if efficientnet.shape[0] == 1
+            else efficientnet[window_id]
+        )
         for index, value in enumerate(efficientnet_vector):
             row[f"efficientnet_{index:04d}"] = float(value)
 

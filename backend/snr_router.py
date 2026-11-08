@@ -1,4 +1,3 @@
-
 from dataclasses import dataclass
 from pathlib import Path
 
@@ -53,12 +52,26 @@ def estimate_snr(audio_path: str) -> float:
     return float(snr_db)
 
 
+def choose_path(snr_db: float) -> str:
+    """
+    Route by estimated audio quality SNR value.
+
+    Heuristic thresholds:
+      - < 5 dB: "both" (low SNR, request complementary analysis)
+      - 5 to 15 dB: "vggish" (moderate SNR, audio feature extraction)
+      - >= 15 dB: "birdnet" (high SNR, prioritize BirdNET)
+    """
+    if snr_db < 5:
+        return "both"
+    elif snr_db < 15:
+        return "vggish"
+    else:
+        return "birdnet"
+
+
 def route_audio(audio_path: str) -> SNRResult:
     """
-    Route by estimated audio quality.
-
-    These initial thresholds are configurable heuristics, not
-    validated performance thresholds.
+    Route an audio file by estimated quality.
     """
     path = Path(audio_path)
 
@@ -66,19 +79,15 @@ def route_audio(audio_path: str) -> SNRResult:
         raise FileNotFoundError(f"Audio file not found: {path}")
 
     snr_db = estimate_snr(str(path))
+    route = choose_path(snr_db)
 
-    if snr_db < 5:
-        return SNRResult(
-            snr_db, "both", "Low estimated SNR; request complementary analysis."
-        )
-    elif snr_db < 15:
-        return SNRResult(
-            snr_db, "vggish", "Moderate estimated SNR; extract audio features."
-        )
-    else:
-        return SNRResult(
-            snr_db, "birdnet", "High estimated SNR; prioritize BirdNET."
-        )
+    reasons = {
+        "both": "Low estimated SNR; request complementary analysis.",
+        "vggish": "Moderate estimated SNR; extract audio features.",
+        "birdnet": "High estimated SNR; prioritize BirdNET.",
+    }
+
+    return SNRResult(snr_db, route, reasons[route])
 
 
 if __name__ == "__main__":

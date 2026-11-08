@@ -1,0 +1,11 @@
+recording_path,start_time_seconds,end_time_seconds,listener_observation,review_status
+data/recordings/house_sparrow.wav,0,3,Dove-like call,needs_review
+data/recordings/house_sparrow.wav,3,6,Dove-like call,needs_review
+data/recordings/house_sparrow.wav,6,9,Dove-like call and another bird,needs_review
+data/recordings/house_sparrow.wav,9,12,No dove heard; other sounds unidentified,needs_review
+data/recordings/house_sparrow.wav,12,15,Birds heard; species unidentified,needs_review
+data/recordings/house_sparrow.wav,15,18,Sparrow-like call,needs_review
+data/recordings/house_sparrow.wav,18,21,Sparrow-like call,needs_review
+data/recordings/house_sparrow.wav,21,24,Sparrow-like call,needs_review
+data/recordings/house_sparrow.wav,24,27,Sparrow-like call,needs_review
+data/recordings/house_sparrow.wav,27,30,Sparrow-like call,needs_review

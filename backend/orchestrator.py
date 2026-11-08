@@ -1,8 +1,25 @@
-﻿
+import os
 from pathlib import Path
 from datetime import datetime, timezone
 import argparse
 import json
+import sys
+
+# Suppress verbose TensorFlow / oneDNN C++ log output
+os.environ["TF_ENABLE_ONEDNN_OPTS"] = "0"
+os.environ["TF_CPP_MIN_LOG_LEVEL"] = "3"
+
+# Ensure UTF-8 stdout if possible on Windows
+if hasattr(sys.stdout, "reconfigure"):
+    try:
+        sys.stdout.reconfigure(encoding="utf-8")
+    except Exception:
+        pass
+
+# Ensure repository root is on sys.path for direct execution
+ROOT_DIR = Path(__file__).resolve().parents[1]
+if str(ROOT_DIR) not in sys.path:
+    sys.path.insert(0, str(ROOT_DIR))
 
 import numpy as np
 
@@ -18,7 +35,10 @@ from backend.models.vggish_extractor import extract_vggish_embeddings
 
 
 class BioacousticOrchestrator:
-    """Coordinate audio agents using SNR-based routing."""
+    """Coordinate bioacoustic agents using SNR-based routing."""
+
+    WINDOW_SECONDS = 3.0
+    VGGISH_HOP_SECONDS = 0.96
 
     def __init__(self):
         self._birdnet_agent = None
@@ -36,14 +56,18 @@ class BioacousticOrchestrator:
 
     @staticmethod
     def _validate_features(name, features):
-        """Validate an extracted feature array."""
+        """Validate that an extracted feature array is numeric and finite."""
         features = np.asarray(features)
 
         if features.size == 0:
-            raise ValueError(f"{name} returned an empty feature array.")
+            raise ValueError(
+                f"{name} returned an empty feature array."
+            )
 
         if not np.issubdtype(features.dtype, np.number):
-            raise TypeError(f"{name} returned non-numeric features.")
+            raise TypeError(
+                f"{name} returned non-numeric features."
+            )
 
         if not np.isfinite(features).all():
             raise ValueError(
@@ -52,24 +76,31 @@ class BioacousticOrchestrator:
 
         return features
 
-    def analyze(self, audio_path, force_vggish=False):
+    def analyze(self, audio_path, force_vggish=False, verbose=True):
         audio_path = Path(audio_path)
 
         if not audio_path.is_file():
-            raise FileNotFoundError(f"Audio file not found: {audio_path}")
+            raise FileNotFoundError(
+                f"Audio file not found: {audio_path}"
+            )
 
         output_dir = Path("data/results")
         output_dir.mkdir(parents=True, exist_ok=True)
 
+        # 1. Estimate SNR & route
+        if verbose:
+            print("\n[1/4] Estimating Audio SNR & Determining Processing Route...", flush=True)
         routing = route_audio(str(audio_path))
+        if verbose:
+            print(f"    Estimated SNR: {routing.snr_db:.2f} dB", flush=True)
+            print(f"    Assigned Route: {routing.route.upper()} ({routing.reason})", flush=True)
 
-        # Keep track of the modalities that actually ran.
         predictions = None
         embeddings = None
 
-        # The force flag adds VGGish without changing the router's decision.
         run_vggish = (
-            force_vggish or routing.route in ("vggish", "both")
+            force_vggish
+            or routing.route in ("vggish", "both")
         )
 
         result = {
@@ -79,14 +110,17 @@ class BioacousticOrchestrator:
             "route": routing.route,
             "routing_reason": routing.reason,
             "vggish_forced_for_test": bool(force_vggish),
+            "window_seconds": self.WINDOW_SECONDS,
             "birdnet": None,
             "vggish": None,
             "efficientnet": None,
             "fusion": None,
         }
 
-        # 1. Run BirdNET when selected by the normal router.
+        # 2. Run BirdNET when selected by the SNR router.
         if routing.route in ("birdnet", "both"):
+            if verbose:
+                print("[2/4] Executing BirdNET Acoustic Model (analyzing species audio)...", flush=True)
             predictions = self._get_birdnet_agent().analyze(
                 str(audio_path)
             )
@@ -98,23 +132,36 @@ class BioacousticOrchestrator:
             predictions.to_csv(predictions_path, index=False)
 
             species_summary = summarize_birdnet(predictions)
+
             species_summary_path = (
-                output_dir / f"{audio_path.stem}_species_summary.csv"
+                output_dir
+                / f"{audio_path.stem}_species_summary.csv"
             )
-            species_summary.to_csv(species_summary_path, index=False)
+            species_summary.to_csv(
+                species_summary_path,
+                index=False,
+            )
 
             window_summary = summarize_birdnet_by_window(
                 predictions,
-                window_seconds=3.0,
+                window_seconds=self.WINDOW_SECONDS,
             )
+
             window_summary_path = (
-                output_dir / f"{audio_path.stem}_window_summary.csv"
+                output_dir
+                / f"{audio_path.stem}_window_summary.csv"
             )
-            window_summary.to_csv(window_summary_path, index=False)
+            window_summary.to_csv(
+                window_summary_path,
+                index=False,
+            )
+
+            if verbose:
+                print(f"    BirdNET completed: {len(predictions)} detections across {len(species_summary)} species.", flush=True)
 
             result["birdnet"] = {
-                "prediction_count": len(predictions),
-                "unique_species_count": len(species_summary),
+                "prediction_count": int(len(predictions)),
+                "unique_species_count": int(len(species_summary)),
                 "predictions_csv_path": str(
                     predictions_path.resolve()
                 ),
@@ -129,18 +176,31 @@ class BioacousticOrchestrator:
                 ),
             }
 
-        # 2. Run VGGish if selected or explicitly forced for testing.
+        # 3. Extract feature embeddings (VGGish & EfficientNet)
+        if verbose:
+            print("[3/4] Extracting Deep Audio Representations (VGGish & EfficientNet)...", flush=True)
+
         if run_vggish:
-            embeddings = extract_vggish_embeddings(str(audio_path))
-            embeddings = self._validate_features("VGGish", embeddings)
+            embeddings = extract_vggish_embeddings(
+                str(audio_path)
+            )
+            embeddings = self._validate_features(
+                "VGGish",
+                embeddings,
+            )
 
             suffix = (
                 "_vggish_test.npy"
                 if force_vggish
                 else "_vggish.npy"
             )
-            embedding_path = output_dir / f"{audio_path.stem}{suffix}"
+            embedding_path = (
+                output_dir / f"{audio_path.stem}{suffix}"
+            )
             np.save(embedding_path, embeddings)
+
+            if verbose:
+                print(f"    VGGish embeddings extracted: shape {embeddings.shape}", flush=True)
 
             result["vggish"] = {
                 "shape": list(embeddings.shape),
@@ -149,33 +209,59 @@ class BioacousticOrchestrator:
                 "npy_path": str(embedding_path.resolve()),
             }
 
-        # 3. Extract EfficientNet features on every route.
-        features = self._get_efficientnet_agent().analyze(
-            str(audio_path)
-        )
-        features = self._validate_features("EfficientNet", features)
+        efficientnet_agent = self._get_efficientnet_agent()
 
+        features = efficientnet_agent.analyze_windows(
+            str(audio_path),
+            window_seconds=self.WINDOW_SECONDS,
+        )
+        features = self._validate_features(
+            "EfficientNet",
+            features,
+        )
+
+        if features.ndim != 2:
+            raise ValueError(
+                "EfficientNet window features must be a 2D array "
+                "with shape (window_count, feature_count). "
+                f"Received shape: {features.shape}"
+            )
+
+        efficientnet_suffix = (
+            "_efficientnet_windows_test.npy"
+            if force_vggish
+            else "_efficientnet_windows.npy"
+        )
         efficientnet_path = (
-            output_dir / f"{audio_path.stem}_efficientnet.npy"
+            output_dir
+            / f"{audio_path.stem}{efficientnet_suffix}"
         )
         np.save(efficientnet_path, features)
+
+        if verbose:
+            print(f"    EfficientNet spectrogram features extracted: shape {features.shape}", flush=True)
 
         result["efficientnet"] = {
             "shape": list(features.shape),
             "dtype": str(features.dtype),
+            "window_count": int(features.shape[0]),
+            "feature_count": int(features.shape[1]),
+            "window_seconds": self.WINDOW_SECONDS,
             "all_finite": True,
             "npy_path": str(efficientnet_path.resolve()),
         }
 
-        # 4. Fuse modalities only when BirdNET and VGGish both ran.
-        # EfficientNet features are always extracted above.
+        # 4. Multimodal Fusion & Classification
+        if verbose:
+            print("[4/4] Fusing Modalities & Executing Trimodal Classifier...", flush=True)
+
         if predictions is not None and embeddings is not None:
             fused_features = fuse_modalities_by_window(
                 predictions=predictions,
                 vggish_embeddings=embeddings,
                 efficientnet_embeddings=features,
-                window_seconds=3.0,
-                vggish_hop_seconds=0.96,
+                window_seconds=self.WINDOW_SECONDS,
+                vggish_hop_seconds=self.VGGISH_HOP_SECONDS,
             )
 
             fusion_suffix = (
@@ -183,18 +269,50 @@ class BioacousticOrchestrator:
                 if force_vggish
                 else "_fused.csv"
             )
-            fusion_path = output_dir / (
-                f"{audio_path.stem}{fusion_suffix}"
+            fusion_path = (
+                output_dir
+                / f"{audio_path.stem}{fusion_suffix}"
             )
-            fused_features.to_csv(fusion_path, index=False)
+            fused_features.to_csv(
+                fusion_path,
+                index=False,
+            )
+
+            # 4b. Run trained multimodal fusion classifier
+            trained_classifier_success = False
+            preds_dict = None
+            preds_path = None
+            try:
+                from backend.classifier import TrimodalClassifier, DEFAULT_MODEL_PATH, bootstrap_training
+                classifier = TrimodalClassifier()
+                if not DEFAULT_MODEL_PATH.is_file():
+                    classifier = bootstrap_training()
+
+                preds_df = classifier.predict_dataframe(fused_features)
+                preds_path = output_dir / f"{audio_path.stem}_trimodal_predictions.csv"
+                preds_df.to_csv(preds_path, index=False)
+                trained_classifier_success = True
+                preds_dict = preds_df.head(10).to_dict(orient="records")
+
+                if verbose:
+                    print(f"    Trimodal Classifier completed: {len(preds_df)} windows classified.", flush=True)
+                    print(f"    Predictions saved to: {preds_path.name}", flush=True)
+            except Exception as e:
+                if verbose:
+                    print(f"    Classifier notice: {e}", flush=True)
 
             result["fusion"] = {
                 "status": "completed",
-                "window_count": len(fused_features),
-                "feature_column_count": len(fused_features.columns),
+                "window_count": int(len(fused_features)),
+                "feature_column_count": int(
+                    len(fused_features.columns)
+                ),
                 "csv_path": str(fusion_path.resolve()),
-                "trained_classifier": False,
+                "trained_classifier": trained_classifier_success,
+                "predictions_csv_path": str(preds_path.resolve()) if preds_path else None,
+                "top_predictions": preds_dict,
             }
+
         else:
             missing_modalities = []
 
@@ -207,25 +325,32 @@ class BioacousticOrchestrator:
             result["fusion"] = {
                 "status": "skipped",
                 "reason": (
-                    "Fusion requires all three modalities. "
+                    "Fusion requires BirdNET, VGGish, and EfficientNet. "
                     "Unavailable modalities: "
                     + ", ".join(missing_modalities)
                 ),
             }
 
-        # 5. Use a separate report for forced VGGish tests.
+        # 5. Save report
         report_suffix = (
             "_vggish_test_report.json"
             if force_vggish
             else "_report.json"
         )
-        report_path = output_dir / f"{audio_path.stem}{report_suffix}"
+        report_path = (
+            output_dir
+            / f"{audio_path.stem}{report_suffix}"
+        )
+
         result["report_path"] = str(report_path.resolve())
 
         report_path.write_text(
             json.dumps(result, indent=2, default=str),
             encoding="utf-8",
         )
+
+        if verbose:
+            print(f"[DONE] Pipeline completed successfully! Saved report to: {report_path.name}\n", flush=True)
 
         return result
 
@@ -249,6 +374,7 @@ if __name__ == "__main__":
     report = orchestrator.analyze(
         args.audio_path,
         force_vggish=args.force_vggish,
+        verbose=True,
     )
 
     print(json.dumps(report, indent=2))

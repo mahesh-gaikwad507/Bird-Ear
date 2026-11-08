@@ -1,0 +1,2 @@
+recording_path,start_time_seconds,end_time_seconds,verified_species,review_status,review_notes
+data/recordings/house_sparrow.wav,0.0,3.0,Dove,verified,User listened and confirmed dove
