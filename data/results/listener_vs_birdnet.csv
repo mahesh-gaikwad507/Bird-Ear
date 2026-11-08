@@ -1,0 +1,11 @@
+recording_path,start_time_seconds,end_time_seconds,listener_observation,review_status,top_birdnet_prediction,birdnet_confidence
+data/recordings/house_sparrow.wav,0,3,Dove-like call,needs_review,Streptopelia decaocto_Eurasian Collared Dove,0.9001168
+data/recordings/house_sparrow.wav,3,6,Dove-like call,needs_review,Streptopelia decaocto_Eurasian Collared Dove,0.88700974
+data/recordings/house_sparrow.wav,6,9,Dove-like call and another bird,needs_review,Streptopelia decaocto_Eurasian Collared Dove,0.87920856
+data/recordings/house_sparrow.wav,9,12,No dove heard; other sounds unidentified,needs_review,Cicada orni_Ash Cicada,0.5937476
+data/recordings/house_sparrow.wav,12,15,Birds heard; species unidentified,needs_review,Cicada orni_Ash Cicada,0.5426625
+data/recordings/house_sparrow.wav,15,18,Sparrow-like call,needs_review,Cicada orni_Ash Cicada,0.51387614
+data/recordings/house_sparrow.wav,18,21,Sparrow-like call,needs_review,Carduelis carduelis_European Goldfinch,0.5858732
+data/recordings/house_sparrow.wav,21,24,Sparrow-like call,needs_review,Carduelis carduelis_European Goldfinch,0.22434437
+data/recordings/house_sparrow.wav,24,27,Sparrow-like call,needs_review,Cicada orni_Ash Cicada,0.79466873
+data/recordings/house_sparrow.wav,27,30,Sparrow-like call,needs_review,Cicada orni_Ash Cicada,0.28246674

@@ -1,0 +1,97 @@
+{
+  "audio_file": "C:\\Users\\MAHESH\\OneDrive\\Desktop\\BirdNet\\bioacoustic-trimodal\\data\\recordings\\house_sparrow.wav",
+  "timestamp_utc": "2026-10-11T20:40:32.799182+00:00",
+  "snr_db": 16.097726821899414,
+  "route": "birdnet",
+  "routing_reason": "High estimated SNR; prioritize BirdNET.",
+  "birdnet": {
+    "prediction_count": 177,
+    "unique_species_count": 13,
+    "predictions_csv_path": "C:\\Users\\MAHESH\\OneDrive\\Desktop\\BirdNet\\bioacoustic-trimodal\\data\\results\\house_sparrow_birdnet_predictions.csv",
+    "species_summary_csv_path": "C:\\Users\\MAHESH\\OneDrive\\Desktop\\BirdNet\\bioacoustic-trimodal\\data\\results\\house_sparrow_species_summary.csv",
+    "window_summary_csv_path": "C:\\Users\\MAHESH\\OneDrive\\Desktop\\BirdNet\\bioacoustic-trimodal\\data\\results\\house_sparrow_window_summary.csv",
+    "top_predictions": [
+      {
+        "input": "C:\\Users\\MAHESH\\OneDrive\\Desktop\\BirdNet\\bioacoustic-trimodal\\data\\recordings\\house_sparrow.wav",
+        "start_time": 0.0,
+        "end_time": 3.0,
+        "species_name": "Streptopelia decaocto_Eurasian Collared Dove",
+        "confidence": 0.9001168012619019
+      },
+      {
+        "input": "C:\\Users\\MAHESH\\OneDrive\\Desktop\\BirdNet\\bioacoustic-trimodal\\data\\recordings\\house_sparrow.wav",
+        "start_time": 0.0,
+        "end_time": 3.0,
+        "species_name": "Passer domesticus_House Sparrow",
+        "confidence": 0.40577998757362366
+      },
+      {
+        "input": "C:\\Users\\MAHESH\\OneDrive\\Desktop\\BirdNet\\bioacoustic-trimodal\\data\\recordings\\house_sparrow.wav",
+        "start_time": 0.0,
+        "end_time": 3.0,
+        "species_name": "Spizella pusilla_Field Sparrow",
+        "confidence": 0.14317050576210022
+      },
+      {
+        "input": "C:\\Users\\MAHESH\\OneDrive\\Desktop\\BirdNet\\bioacoustic-trimodal\\data\\recordings\\house_sparrow.wav",
+        "start_time": 3.0,
+        "end_time": 6.0,
+        "species_name": "Streptopelia decaocto_Eurasian Collared Dove",
+        "confidence": 0.8870097398757935
+      },
+      {
+        "input": "C:\\Users\\MAHESH\\OneDrive\\Desktop\\BirdNet\\bioacoustic-trimodal\\data\\recordings\\house_sparrow.wav",
+        "start_time": 3.0,
+        "end_time": 6.0,
+        "species_name": "Carduelis carduelis_European Goldfinch",
+        "confidence": 0.25061434507369995
+      },
+      {
+        "input": "C:\\Users\\MAHESH\\OneDrive\\Desktop\\BirdNet\\bioacoustic-trimodal\\data\\recordings\\house_sparrow.wav",
+        "start_time": 3.0,
+        "end_time": 6.0,
+        "species_name": "Passer domesticus_House Sparrow",
+        "confidence": 0.22298339009284973
+      },
+      {
+        "input": "C:\\Users\\MAHESH\\OneDrive\\Desktop\\BirdNet\\bioacoustic-trimodal\\data\\recordings\\house_sparrow.wav",
+        "start_time": 6.0,
+        "end_time": 9.0,
+        "species_name": "Streptopelia decaocto_Eurasian Collared Dove",
+        "confidence": 0.8792085647583008
+      },
+      {
+        "input": "C:\\Users\\MAHESH\\OneDrive\\Desktop\\BirdNet\\bioacoustic-trimodal\\data\\recordings\\house_sparrow.wav",
+        "start_time": 6.0,
+        "end_time": 9.0,
+        "species_name": "Passer domesticus_House Sparrow",
+        "confidence": 0.3347962498664856
+      },
+      {
+        "input": "C:\\Users\\MAHESH\\OneDrive\\Desktop\\BirdNet\\bioacoustic-trimodal\\data\\recordings\\house_sparrow.wav",
+        "start_time": 9.0,
+        "end_time": 12.0,
+        "species_name": "Cicada orni_Ash Cicada",
+        "confidence": 0.593747615814209
+      },
+      {
+        "input": "C:\\Users\\MAHESH\\OneDrive\\Desktop\\BirdNet\\bioacoustic-trimodal\\data\\recordings\\house_sparrow.wav",
+        "start_time": 9.0,
+        "end_time": 12.0,
+        "species_name": "Streptopelia decaocto_Eurasian Collared Dove",
+        "confidence": 0.10218614339828491
+      }
+    ]
+  },
+  "vggish": null,
+  "efficientnet": {
+    "shape": [
+      1,
+      1280
+    ],
+    "dtype": "float32",
+    "all_finite": true,
+    "npy_path": "C:\\Users\\MAHESH\\OneDrive\\Desktop\\BirdNet\\bioacoustic-trimodal\\data\\results\\house_sparrow_efficientnet.npy"
+  },
+  "report_path": "C:\\Users\\MAHESH\\OneDrive\\Desktop\\BirdNet\\bioacoustic-trimodal\\data\\results\\house_sparrow_report.json"
+}

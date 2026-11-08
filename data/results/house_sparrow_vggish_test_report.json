@@ -1,0 +1,360 @@
+{
+  "audio_file": "C:\\Users\\MAHESH\\OneDrive\\Desktop\\BirdNet\\bioacoustic-trimodal\\data\\recordings\\house_sparrow.wav",
+  "timestamp_utc": "2026-11-08T09:39:36.311535+00:00",
+  "snr_db": 16.097726821899414,
+  "route": "birdnet",
+  "routing_reason": "High estimated SNR; prioritize BirdNET.",
+  "vggish_forced_for_test": true,
+  "window_seconds": 3.0,
+  "birdnet": {
+    "prediction_count": 177,
+    "unique_species_count": 13,
+    "predictions_csv_path": "C:\\Users\\MAHESH\\OneDrive\\Desktop\\BirdNet\\bioacoustic-trimodal\\data\\results\\house_sparrow_birdnet_predictions.csv",
+    "species_summary_csv_path": "C:\\Users\\MAHESH\\OneDrive\\Desktop\\BirdNet\\bioacoustic-trimodal\\data\\results\\house_sparrow_species_summary.csv",
+    "window_summary_csv_path": "C:\\Users\\MAHESH\\OneDrive\\Desktop\\BirdNet\\bioacoustic-trimodal\\data\\results\\house_sparrow_window_summary.csv",
+    "top_predictions": [
+      {
+        "input": "C:\\Users\\MAHESH\\OneDrive\\Desktop\\BirdNet\\bioacoustic-trimodal\\data\\recordings\\house_sparrow.wav",
+        "start_time": 0.0,
+        "end_time": 3.0,
+        "species_name": "Streptopelia decaocto_Eurasian Collared Dove",
+        "confidence": 0.9001168012619019
+      },
+      {
+        "input": "C:\\Users\\MAHESH\\OneDrive\\Desktop\\BirdNet\\bioacoustic-trimodal\\data\\recordings\\house_sparrow.wav",
+        "start_time": 0.0,
+        "end_time": 3.0,
+        "species_name": "Passer domesticus_House Sparrow",
+        "confidence": 0.40577998757362366
+      },
+      {
+        "input": "C:\\Users\\MAHESH\\OneDrive\\Desktop\\BirdNet\\bioacoustic-trimodal\\data\\recordings\\house_sparrow.wav",
+        "start_time": 0.0,
+        "end_time": 3.0,
+        "species_name": "Spizella pusilla_Field Sparrow",
+        "confidence": 0.14317050576210022
+      },
+      {
+        "input": "C:\\Users\\MAHESH\\OneDrive\\Desktop\\BirdNet\\bioacoustic-trimodal\\data\\recordings\\house_sparrow.wav",
+        "start_time": 3.0,
+        "end_time": 6.0,
+        "species_name": "Streptopelia decaocto_Eurasian Collared Dove",
+        "confidence": 0.8870097398757935
+      },
+      {
+        "input": "C:\\Users\\MAHESH\\OneDrive\\Desktop\\BirdNet\\bioacoustic-trimodal\\data\\recordings\\house_sparrow.wav",
+        "start_time": 3.0,
+        "end_time": 6.0,
+        "species_name": "Carduelis carduelis_European Goldfinch",
+        "confidence": 0.25061434507369995
+      },
+      {
+        "input": "C:\\Users\\MAHESH\\OneDrive\\Desktop\\BirdNet\\bioacoustic-trimodal\\data\\recordings\\house_sparrow.wav",
+        "start_time": 3.0,
+        "end_time": 6.0,
+        "species_name": "Passer domesticus_House Sparrow",
+        "confidence": 0.22298339009284973
+      },
+      {
+        "input": "C:\\Users\\MAHESH\\OneDrive\\Desktop\\BirdNet\\bioacoustic-trimodal\\data\\recordings\\house_sparrow.wav",
+        "start_time": 6.0,
+        "end_time": 9.0,
+        "species_name": "Streptopelia decaocto_Eurasian Collared Dove",
+        "confidence": 0.8792085647583008
+      },
+      {
+        "input": "C:\\Users\\MAHESH\\OneDrive\\Desktop\\BirdNet\\bioacoustic-trimodal\\data\\recordings\\house_sparrow.wav",
+        "start_time": 6.0,
+        "end_time": 9.0,
+        "species_name": "Passer domesticus_House Sparrow",
+        "confidence": 0.3347962498664856
+      },
+      {
+        "input": "C:\\Users\\MAHESH\\OneDrive\\Desktop\\BirdNet\\bioacoustic-trimodal\\data\\recordings\\house_sparrow.wav",
+        "start_time": 9.0,
+        "end_time": 12.0,
+        "species_name": "Cicada orni_Ash Cicada",
+        "confidence": 0.593747615814209
+      },
+      {
+        "input": "C:\\Users\\MAHESH\\OneDrive\\Desktop\\BirdNet\\bioacoustic-trimodal\\data\\recordings\\house_sparrow.wav",
+        "start_time": 9.0,
+        "end_time": 12.0,
+        "species_name": "Streptopelia decaocto_Eurasian Collared Dove",
+        "confidence": 0.10218614339828491
+      }
+    ]
+  },
+  "vggish": {
+    "shape": [
+      245,
+      128
+    ],
+    "dtype": "float32",
+    "all_finite": true,
+    "npy_path": "C:\\Users\\MAHESH\\OneDrive\\Desktop\\BirdNet\\bioacoustic-trimodal\\data\\results\\house_sparrow_vggish_test.npy"
+  },
+  "efficientnet": {
+    "shape": [
+      79,
+      1280
+    ],
+    "dtype": "float32",
+    "window_count": 79,
+    "feature_count": 1280,
+    "window_seconds": 3.0,
+    "all_finite": true,
+    "npy_path": "C:\\Users\\MAHESH\\OneDrive\\Desktop\\BirdNet\\bioacoustic-trimodal\\data\\results\\house_sparrow_efficientnet_windows_test.npy"
+  },
+  "fusion": {
+    "status": "completed",
+    "window_count": 79,
+    "feature_column_count": 1424,
+    "csv_path": "C:\\Users\\MAHESH\\OneDrive\\Desktop\\BirdNet\\bioacoustic-trimodal\\data\\results\\house_sparrow_fused_test.csv",
+    "trained_classifier": true,
+    "predictions_csv_path": "C:\\Users\\MAHESH\\OneDrive\\Desktop\\BirdNet\\bioacoustic-trimodal\\data\\results\\house_sparrow_trimodal_predictions.csv",
+    "top_predictions": [
+      {
+        "window_start_seconds": 0.0,
+        "window_end_seconds": 3.0,
+        "fusion_predicted_species": "Ash Cicada",
+        "fusion_confidence": 1.0,
+        "birdnet_suggested_species": "Streptopelia decaocto Eurasian Collared Dove",
+        "birdnet_confidence": 0.9001,
+        "modalities_agree": false,
+        "confidence_gain": 0.0998,
+        "top_predictions": [
+          [
+            "Ash Cicada",
+            0.9999502897262573
+          ],
+          [
+            "House Sparrow",
+            4.966406777384691e-05
+          ],
+          [
+            "Ambient Background / Noise",
+            9.496911070050462e-12
+          ]
+        ]
+      },
+      {
+        "window_start_seconds": 3.0,
+        "window_end_seconds": 6.0,
+        "fusion_predicted_species": "Ash Cicada",
+        "fusion_confidence": 0.9999,
+        "birdnet_suggested_species": "Streptopelia decaocto Eurasian Collared Dove",
+        "birdnet_confidence": 0.887,
+        "modalities_agree": false,
+        "confidence_gain": 0.1129,
+        "top_predictions": [
+          [
+            "Ash Cicada",
+            0.9999449253082275
+          ],
+          [
+            "House Sparrow",
+            5.502925705513917e-05
+          ],
+          [
+            "Ambient Background / Noise",
+            2.4030801654140177e-11
+          ]
+        ]
+      },
+      {
+        "window_start_seconds": 6.0,
+        "window_end_seconds": 9.0,
+        "fusion_predicted_species": "Ash Cicada",
+        "fusion_confidence": 1.0,
+        "birdnet_suggested_species": "Streptopelia decaocto Eurasian Collared Dove",
+        "birdnet_confidence": 0.8792,
+        "modalities_agree": false,
+        "confidence_gain": 0.1208,
+        "top_predictions": [
+          [
+            "Ash Cicada",
+            0.9999967813491821
+          ],
+          [
+            "House Sparrow",
+            3.174826133545139e-06
+          ],
+          [
+            "Ambient Background / Noise",
+            3.402144538311447e-11
+          ]
+        ]
+      },
+      {
+        "window_start_seconds": 9.0,
+        "window_end_seconds": 12.0,
+        "fusion_predicted_species": "Ash Cicada",
+        "fusion_confidence": 1.0,
+        "birdnet_suggested_species": "Cicada orni Ash Cicada",
+        "birdnet_confidence": 0.5937,
+        "modalities_agree": true,
+        "confidence_gain": 0.4063,
+        "top_predictions": [
+          [
+            "Ash Cicada",
+            1.0
+          ],
+          [
+            "House Sparrow",
+            1.6037446926020493e-08
+          ],
+          [
+            "Ambient Background / Noise",
+            8.10294756639629e-15
+          ]
+        ]
+      },
+      {
+        "window_start_seconds": 12.0,
+        "window_end_seconds": 15.0,
+        "fusion_predicted_species": "Ash Cicada",
+        "fusion_confidence": 1.0,
+        "birdnet_suggested_species": "Cicada orni Ash Cicada",
+        "birdnet_confidence": 0.5427,
+        "modalities_agree": true,
+        "confidence_gain": 0.4573,
+        "top_predictions": [
+          [
+            "Ash Cicada",
+            0.9999998807907104
+          ],
+          [
+            "House Sparrow",
+            7.752676367545064e-08
+          ],
+          [
+            "Ambient Background / Noise",
+            2.5708150885872527e-12
+          ]
+        ]
+      },
+      {
+        "window_start_seconds": 15.0,
+        "window_end_seconds": 18.0,
+        "fusion_predicted_species": "Ash Cicada",
+        "fusion_confidence": 1.0,
+        "birdnet_suggested_species": "Cicada orni Ash Cicada",
+        "birdnet_confidence": 0.5139,
+        "modalities_agree": true,
+        "confidence_gain": 0.4861,
+        "top_predictions": [
+          [
+            "Ash Cicada",
+            0.9999980926513672
+          ],
+          [
+            "House Sparrow",
+            1.95784491552331e-06
+          ],
+          [
+            "Ambient Background / Noise",
+            4.276033693795256e-11
+          ]
+        ]
+      },
+      {
+        "window_start_seconds": 18.0,
+        "window_end_seconds": 21.0,
+        "fusion_predicted_species": "Ash Cicada",
+        "fusion_confidence": 1.0,
+        "birdnet_suggested_species": "Carduelis carduelis European Goldfinch",
+        "birdnet_confidence": 0.5859,
+        "modalities_agree": false,
+        "confidence_gain": 0.4141,
+        "top_predictions": [
+          [
+            "Ash Cicada",
+            0.9999966621398926
+          ],
+          [
+            "House Sparrow",
+            3.278571284681675e-06
+          ],
+          [
+            "Ambient Background / Noise",
+            1.6835059388209395e-11
+          ]
+        ]
+      },
+      {
+        "window_start_seconds": 21.0,
+        "window_end_seconds": 24.0,
+        "fusion_predicted_species": "Ash Cicada",
+        "fusion_confidence": 1.0,
+        "birdnet_suggested_species": "Carduelis carduelis European Goldfinch",
+        "birdnet_confidence": 0.2243,
+        "modalities_agree": false,
+        "confidence_gain": 0.7757,
+        "top_predictions": [
+          [
+            "Ash Cicada",
+            0.9999994039535522
+          ],
+          [
+            "House Sparrow",
+            6.269017376325792e-07
+          ],
+          [
+            "Ambient Background / Noise",
+            1.0224312715911843e-12
+          ]
+        ]
+      },
+      {
+        "window_start_seconds": 24.0,
+        "window_end_seconds": 27.0,
+        "fusion_predicted_species": "Ash Cicada",
+        "fusion_confidence": 0.9998,
+        "birdnet_suggested_species": "Cicada orni Ash Cicada",
+        "birdnet_confidence": 0.7947,
+        "modalities_agree": true,
+        "confidence_gain": 0.2052,
+        "top_predictions": [
+          [
+            "Ash Cicada",
+            0.9998451471328735
+          ],
+          [
+            "House Sparrow",
+            0.0001548073487356305
+          ],
+          [
+            "Ambient Background / Noise",
+            9.88491843934014e-10
+          ]
+        ]
+      },
+      {
+        "window_start_seconds": 27.0,
+        "window_end_seconds": 30.0,
+        "fusion_predicted_species": "Ash Cicada",
+        "fusion_confidence": 1.0,
+        "birdnet_suggested_species": "Cicada orni Ash Cicada",
+        "birdnet_confidence": 0.2825,
+        "modalities_agree": true,
+        "confidence_gain": 0.7175,
+        "top_predictions": [
+          [
+            "Ash Cicada",
+            0.9999985694885254
+          ],
+          [
+            "House Sparrow",
+            1.4265517620515311e-06
+          ],
+          [
+            "Ambient Background / Noise",
+            4.152360692701723e-13
+          ]
+        ]
+      }
+    ]
+  },
+  "report_path": "C:\\Users\\MAHESH\\OneDrive\\Desktop\\BirdNet\\bioacoustic-trimodal\\data\\results\\house_sparrow_vggish_test_report.json"
+}

@@ -1,7 +1,4 @@
-﻿
-# ==========================================
-# PYTHON VIRTUAL ENVIRONMENTS AND CACHES
-# ==========================================
+# Python virtual environments and caches
 .venv/
 venv/
 env/
@@ -12,126 +9,45 @@ __pycache__/
 .ruff_cache/
 .ipynb_checkpoints/
 
-# ==========================================
-# SECRETS AND LOCAL ENVIRONMENT SETTINGS
-# ==========================================
+# Secrets and local environment settings
 .env
 .env.*
 !.env.example
 secrets.json
 credentials.json
 
-# ==========================================
-# MODEL WEIGHTS AND DOWNLOADED CHECKPOINTS
-# ==========================================
-weights/
+# Model checkpoints & large binary weights
+weights/vggish/
 temp-tf-models/
 *.onnx
 *.h5
 *.keras
 *.ckpt
 *.pb
-*.pt
-*.pth
 *.tflite
 *.safetensors
 
-# ==========================================
-# KERAS AND MACHINE LEARNING CACHES
-# ==========================================
+# Keep trained lightweight fusion classifier (105 KB)
+!weights/fusion/trimodal_classifier.joblib
+
+# Local Keras & training caches
 .keras/
 wandb/
 mlruns/
 lightning_logs/
 
-# ==========================================
-# GENERATED FEATURES AND EXPERIMENT OUTPUTS
-# ==========================================
-data/results/
-data/recordings/*.npy
-data/recordings/*predictions*.csv
-data/processed/
-outputs/
-logs/
-*.log
-
-# ==========================================
-# AUDIO RECORDINGS
-# ==========================================
-data/recordings/*.wav
-data/recordings/*.mp3
-data/recordings/*.flac
-
-# ==========================================
-# LOCAL EDITOR AND OPERATING SYSTEM FILES
-# ==========================================
+# Local editor and OS files
 .vscode/
 .idea/
 .DS_Store
 Thumbs.db
 desktop.ini
 
-# ==========================================
-# TEMPORARY FILES
-# ==========================================
-*.tmp
-*.bak
-*.swp
-*.swo
-```
+# Audio recordings (exclude large files, keep sample recording for Streamlit Cloud)
+data/recordings/*.mp3
+data/recordings/*.flac
+!data/recordings/house_sparrow.wav
+!data/recordings/house_sparrow_vggish.npy
 
-## What this configuration does
-
-| Component | GitHub |
-|---|---|
-| Backend Python code | <badge color="success">Included</badge> |
-| Frontend application | <badge color="success">Included</badge> |
-| Evaluation scripts | <badge color="success">Included</badge> |
-| Test cases | <badge color="success">Included</badge> |
-| README and documentation | <badge color="success">Included</badge> |
-| Dataset files (except excluded paths) | <badge color="success">Included</badge> |
-| Model weights | <badge color="danger">Excluded</badge> |
-| Audio recordings | <badge color="danger">Excluded</badge> |
-| Virtual environment | <badge color="danger">Excluded</badge> |
-| API keys and secrets | <badge color="danger">Excluded</badge> |
-
-**Important:** This configuration excludes all `.pt`, `.pth`, `.onnx`, `.h5`, and similar model files throughout the repository. If you have small pretrained models that should be included, we can selectively allow them.
-
-## Now push your project to GitHub
-
-Run these commands one by one in your VS Code terminal:
-
-```bash
-git status
-```
-
-```bash
-git add -A
-```
-
-```bash
-git commit -m "Update Bioacoustic Trimodal AI project"
-```
-
-```bash
-git branch -M main
-```
-
-```bash
-git remote -v
-```
-
-If no remote exists:
-
-```bash
-git remote add origin https://github.com/mahesh-gaikwad507/bioacoustic-trimodal.git
-```
-
-Finally:
-
-```bash
-git push -u origin main
-```
-
-**Note:** If your GitHub repository already contains commits, you may need to pull and reconcile its history before pushing. Also, `.gitignore` does not remove files that Git is already tracking.
-
+# Generated features and experiment outputs (keep sample benchmark results for UI)
+!data/results/

@@ -1,0 +1,178 @@
+window_start_seconds,window_end_seconds,species_name,detection_count,mean_confidence,max_confidence
+0.0,3.0,Streptopelia decaocto_Eurasian Collared Dove,1,0.9001168,0.9001168
+0.0,3.0,Passer domesticus_House Sparrow,1,0.40578,0.40578
+0.0,3.0,Spizella pusilla_Field Sparrow,1,0.1431705,0.1431705
+3.0,6.0,Streptopelia decaocto_Eurasian Collared Dove,1,0.88700974,0.88700974
+3.0,6.0,Carduelis carduelis_European Goldfinch,1,0.25061435,0.25061435
+3.0,6.0,Passer domesticus_House Sparrow,1,0.22298339,0.22298339
+6.0,9.0,Streptopelia decaocto_Eurasian Collared Dove,1,0.87920856,0.87920856
+6.0,9.0,Passer domesticus_House Sparrow,1,0.33479625,0.33479625
+9.0,12.0,Cicada orni_Ash Cicada,1,0.5937476,0.5937476
+9.0,12.0,Streptopelia decaocto_Eurasian Collared Dove,1,0.10218614,0.10218614
+12.0,15.0,Cicada orni_Ash Cicada,1,0.5426625,0.5426625
+12.0,15.0,Carduelis carduelis_European Goldfinch,1,0.36245856,0.36245856
+15.0,18.0,Cicada orni_Ash Cicada,1,0.51387614,0.51387614
+15.0,18.0,Carduelis carduelis_European Goldfinch,1,0.34698766,0.34698766
+18.0,21.0,Carduelis carduelis_European Goldfinch,1,0.5858732,0.5858732
+18.0,21.0,Cicada orni_Ash Cicada,1,0.18476778,0.18476778
+21.0,24.0,Carduelis carduelis_European Goldfinch,1,0.22434437,0.22434437
+21.0,24.0,Cicada orni_Ash Cicada,1,0.21998781,0.21998781
+24.0,27.0,Cicada orni_Ash Cicada,1,0.79466873,0.79466873
+24.0,27.0,Catharus minimus_Grey-cheeked Thrush,1,0.3217144,0.3217144
+27.0,30.0,Cicada orni_Ash Cicada,1,0.28246674,0.28246674
+27.0,30.0,Columba livia_Rock Dove,1,0.16833368,0.16833368
+27.0,30.0,Passer domesticus_House Sparrow,1,0.1320217,0.1320217
+30.0,33.0,Cicada orni_Ash Cicada,1,0.57762355,0.57762355
+30.0,33.0,Carduelis carduelis_European Goldfinch,1,0.57008076,0.57008076
+30.0,33.0,Passer domesticus_House Sparrow,1,0.19049296,0.19049296
+33.0,36.0,Cicada orni_Ash Cicada,1,0.5660622,0.5660622
+33.0,36.0,Passer domesticus_House Sparrow,1,0.32144943,0.32144943
+36.0,39.0,Cicada orni_Ash Cicada,1,0.38275585,0.38275585
+36.0,39.0,Passer domesticus_House Sparrow,1,0.29999524,0.29999524
+39.0,42.0,Cicada orni_Ash Cicada,1,0.69781125,0.69781125
+39.0,42.0,Passer domesticus_House Sparrow,1,0.17786181,0.17786181
+42.0,45.0,Cicada orni_Ash Cicada,1,0.45335826,0.45335826
+42.0,45.0,Carduelis carduelis_European Goldfinch,1,0.25732416,0.25732416
+42.0,45.0,Passer domesticus_House Sparrow,1,0.13452879,0.13452879
+45.0,48.0,Cicada orni_Ash Cicada,1,0.4360928,0.4360928
+45.0,48.0,Passer domesticus_House Sparrow,1,0.19748464,0.19748464
+48.0,51.0,Cicada orni_Ash Cicada,1,0.2425482,0.2425482
+48.0,51.0,Passer domesticus_House Sparrow,1,0.16244751,0.16244751
+48.0,51.0,Streptopelia decaocto_Eurasian Collared Dove,1,0.11178127,0.11178127
+51.0,54.0,Cicada orni_Ash Cicada,1,0.61710733,0.61710733
+51.0,54.0,Passer domesticus_House Sparrow,1,0.22156358,0.22156358
+54.0,57.0,Passer domesticus_House Sparrow,1,0.45805764,0.45805764
+54.0,57.0,Cicada orni_Ash Cicada,1,0.35400903,0.35400903
+54.0,57.0,Streptopelia decaocto_Eurasian Collared Dove,1,0.12867698,0.12867698
+57.0,60.0,Streptopelia decaocto_Eurasian Collared Dove,1,0.40712038,0.40712038
+57.0,60.0,Cicada orni_Ash Cicada,1,0.34752315,0.34752315
+57.0,60.0,Passer domesticus_House Sparrow,1,0.34194773,0.34194773
+60.0,63.0,Cicada orni_Ash Cicada,1,0.61171085,0.61171085
+60.0,63.0,Passer domesticus_House Sparrow,1,0.37484497,0.37484497
+63.0,66.0,Cicada orni_Ash Cicada,1,0.50254464,0.50254464
+63.0,66.0,Passer domesticus_House Sparrow,1,0.27647656,0.27647656
+66.0,69.0,Cicada orni_Ash Cicada,1,0.44298342,0.44298342
+66.0,69.0,Passer domesticus_House Sparrow,1,0.21375683,0.21375683
+69.0,72.0,Passer domesticus_House Sparrow,1,0.28269735,0.28269735
+69.0,72.0,Cicada orni_Ash Cicada,1,0.2679844,0.2679844
+72.0,75.0,Cicada orni_Ash Cicada,1,0.8009518,0.8009518
+72.0,75.0,Passer domesticus_House Sparrow,1,0.3007989,0.3007989
+75.0,78.0,Cicada orni_Ash Cicada,1,0.7116932,0.7116932
+75.0,78.0,Passer domesticus_House Sparrow,1,0.15197247,0.15197247
+78.0,81.0,Cicada orni_Ash Cicada,1,0.77687085,0.77687085
+78.0,81.0,Passer domesticus_House Sparrow,1,0.19560796,0.19560796
+81.0,84.0,Cicada orni_Ash Cicada,1,0.46299857,0.46299857
+81.0,84.0,Passer domesticus_House Sparrow,1,0.14884245,0.14884245
+84.0,87.0,Cicada orni_Ash Cicada,1,0.7958851,0.7958851
+84.0,87.0,Carduelis carduelis_European Goldfinch,1,0.17120889,0.17120889
+84.0,87.0,Passer domesticus_House Sparrow,1,0.12858692,0.12858692
+87.0,90.0,Streptopelia decaocto_Eurasian Collared Dove,1,0.75105894,0.75105894
+87.0,90.0,Cicada orni_Ash Cicada,1,0.47102633,0.47102633
+87.0,90.0,Carduelis carduelis_European Goldfinch,1,0.22402576,0.22402576
+87.0,90.0,Passer domesticus_House Sparrow,1,0.119405806,0.119405806
+90.0,93.0,Streptopelia decaocto_Eurasian Collared Dove,1,0.65056777,0.65056777
+90.0,93.0,Cicada orni_Ash Cicada,1,0.35762382,0.35762382
+90.0,93.0,Passer domesticus_House Sparrow,1,0.15138775,0.15138775
+93.0,96.0,Cicada orni_Ash Cicada,1,0.43721718,0.43721718
+93.0,96.0,Passer domesticus_House Sparrow,1,0.21552849,0.21552849
+93.0,96.0,Streptopelia decaocto_Eurasian Collared Dove,1,0.10190529,0.10190529
+96.0,99.0,Cicada orni_Ash Cicada,1,0.33710408,0.33710408
+96.0,99.0,Passer domesticus_House Sparrow,1,0.20107308,0.20107308
+96.0,99.0,Streptopelia decaocto_Eurasian Collared Dove,1,0.14554882,0.14554882
+99.0,102.0,Cicada orni_Ash Cicada,1,0.62702096,0.62702096
+99.0,102.0,Streptopelia decaocto_Eurasian Collared Dove,1,0.58367765,0.58367765
+99.0,102.0,Passer domesticus_House Sparrow,1,0.18326172,0.18326172
+102.0,105.0,Streptopelia decaocto_Eurasian Collared Dove,1,0.4179392,0.4179392
+102.0,105.0,Cicada orni_Ash Cicada,1,0.2840821,0.2840821
+102.0,105.0,Passer domesticus_House Sparrow,1,0.25859493,0.25859493
+105.0,108.0,Cicada orni_Ash Cicada,1,0.44291118,0.44291118
+105.0,108.0,Streptopelia decaocto_Eurasian Collared Dove,1,0.23829123,0.23829123
+105.0,108.0,Passer domesticus_House Sparrow,1,0.16593921,0.16593921
+108.0,111.0,Cicada orni_Ash Cicada,1,0.47879466,0.47879466
+111.0,114.0,Cicada orni_Ash Cicada,1,0.57927674,0.57927674
+111.0,114.0,Streptopelia decaocto_Eurasian Collared Dove,1,0.15365794,0.15365794
+114.0,117.0,Cicada orni_Ash Cicada,1,0.2722886,0.2722886
+114.0,117.0,Carduelis carduelis_European Goldfinch,1,0.25574774,0.25574774
+117.0,120.0,Cicada orni_Ash Cicada,1,0.5781742,0.5781742
+117.0,120.0,Passer domesticus_House Sparrow,1,0.16182822,0.16182822
+120.0,123.0,Cicada orni_Ash Cicada,1,0.24698535,0.24698535
+123.0,126.0,Cicada orni_Ash Cicada,1,0.6253256,0.6253256
+123.0,126.0,Passer domesticus_House Sparrow,1,0.18491378,0.18491378
+126.0,129.0,Cicada orni_Ash Cicada,1,0.593012,0.593012
+126.0,129.0,Passer domesticus_House Sparrow,1,0.16536632,0.16536632
+129.0,132.0,Cicada orni_Ash Cicada,1,0.49866933,0.49866933
+132.0,135.0,Cicada orni_Ash Cicada,1,0.4741681,0.4741681
+132.0,135.0,Passer domesticus_House Sparrow,1,0.16280365,0.16280365
+132.0,135.0,Sturnus vulgaris_Common Starling,1,0.109639406,0.109639406
+135.0,138.0,Sturnus vulgaris_Common Starling,1,0.53531134,0.53531134
+135.0,138.0,Streptopelia decaocto_Eurasian Collared Dove,1,0.24933678,0.24933678
+135.0,138.0,Cicada orni_Ash Cicada,1,0.21159291,0.21159291
+138.0,141.0,Cicada orni_Ash Cicada,1,0.32529837,0.32529837
+138.0,141.0,Sturnus vulgaris_Common Starling,1,0.2269341,0.2269341
+138.0,141.0,Prinia flaviventris_Yellow-bellied Prinia,1,0.19097182,0.19097182
+141.0,144.0,Sturnus vulgaris_Common Starling,1,0.4703568,0.4703568
+141.0,144.0,Streptopelia decaocto_Eurasian Collared Dove,1,0.14464906,0.14464906
+144.0,147.0,Cicada orni_Ash Cicada,1,0.22343895,0.22343895
+144.0,147.0,Sturnus vulgaris_Common Starling,1,0.1038599,0.1038599
+147.0,150.0,Sturnus vulgaris_Common Starling,1,0.25593263,0.25593263
+147.0,150.0,Streptopelia decaocto_Eurasian Collared Dove,1,0.24103385,0.24103385
+150.0,153.0,Cicada orni_Ash Cicada,1,0.6918142,0.6918142
+150.0,153.0,Passer domesticus_House Sparrow,1,0.14737013,0.14737013
+153.0,156.0,Cicada orni_Ash Cicada,1,0.5289074,0.5289074
+153.0,156.0,Passer domesticus_House Sparrow,1,0.2653685,0.2653685
+156.0,159.0,Sturnus vulgaris_Common Starling,1,0.56356484,0.56356484
+159.0,162.0,Sturnus vulgaris_Common Starling,1,0.44439042,0.44439042
+159.0,162.0,Cicada orni_Ash Cicada,1,0.105611265,0.105611265
+159.0,162.0,Streptopelia decaocto_Eurasian Collared Dove,1,0.10285485,0.10285485
+162.0,165.0,Streptopelia decaocto_Eurasian Collared Dove,1,0.40644673,0.40644673
+162.0,165.0,Sturnus vulgaris_Common Starling,1,0.30694014,0.30694014
+162.0,165.0,Cicada orni_Ash Cicada,1,0.16223598,0.16223598
+162.0,165.0,Passer domesticus_House Sparrow,1,0.11467031,0.11467031
+165.0,168.0,Sturnus vulgaris_Common Starling,1,0.44821954,0.44821954
+165.0,168.0,Cicada orni_Ash Cicada,1,0.15939474,0.15939474
+168.0,171.0,Sturnus vulgaris_Common Starling,1,0.30572614,0.30572614
+168.0,171.0,Cicada orni_Ash Cicada,1,0.26498386,0.26498386
+168.0,171.0,Streptopelia decaocto_Eurasian Collared Dove,1,0.15844733,0.15844733
+171.0,174.0,Sturnus vulgaris_Common Starling,1,0.49696884,0.49696884
+171.0,174.0,Streptopelia decaocto_Eurasian Collared Dove,1,0.17750481,0.17750481
+171.0,174.0,Cicada orni_Ash Cicada,1,0.12632728,0.12632728
+174.0,177.0,Cicada orni_Ash Cicada,1,0.69919133,0.69919133
+174.0,177.0,Streptopelia decaocto_Eurasian Collared Dove,1,0.584336,0.584336
+174.0,177.0,Passer domesticus_House Sparrow,1,0.10450986,0.10450986
+177.0,180.0,Cicada orni_Ash Cicada,1,0.43581915,0.43581915
+177.0,180.0,Streptopelia decaocto_Eurasian Collared Dove,1,0.27518547,0.27518547
+177.0,180.0,Passer domesticus_House Sparrow,1,0.16039318,0.16039318
+180.0,183.0,Cicada orni_Ash Cicada,1,0.4166445,0.4166445
+180.0,183.0,Streptopelia decaocto_Eurasian Collared Dove,1,0.16803545,0.16803545
+183.0,186.0,Cicada orni_Ash Cicada,1,0.43153897,0.43153897
+183.0,186.0,Passer domesticus_House Sparrow,1,0.12742937,0.12742937
+186.0,189.0,Cicada orni_Ash Cicada,1,0.48120588,0.48120588
+186.0,189.0,Carduelis carduelis_European Goldfinch,1,0.45837942,0.45837942
+189.0,192.0,Carduelis carduelis_European Goldfinch,1,0.5114195,0.5114195
+189.0,192.0,Sturnus vulgaris_Common Starling,1,0.19056243,0.19056243
+192.0,195.0,Cicada orni_Ash Cicada,1,0.47644916,0.47644916
+192.0,195.0,Carduelis carduelis_European Goldfinch,1,0.35380554,0.35380554
+195.0,198.0,Carduelis carduelis_European Goldfinch,1,0.80305076,0.80305076
+198.0,201.0,Carduelis carduelis_European Goldfinch,1,0.7443882,0.7443882
+201.0,204.0,Carduelis carduelis_European Goldfinch,1,0.8925693,0.8925693
+204.0,207.0,Carduelis carduelis_European Goldfinch,1,0.868273,0.868273
+204.0,207.0,Columba palumbus_Common Wood Pigeon,1,0.16757083,0.16757083
+207.0,210.0,Passer domesticus_House Sparrow,1,0.41522577,0.41522577
+210.0,213.0,Passer domesticus_House Sparrow,1,0.5442,0.5442
+210.0,213.0,Pica pica_Eurasian Magpie,1,0.21238026,0.21238026
+210.0,213.0,Streptopelia decaocto_Eurasian Collared Dove,1,0.15281582,0.15281582
+213.0,216.0,Passer domesticus_House Sparrow,1,0.45603746,0.45603746
+213.0,216.0,Streptopelia decaocto_Eurasian Collared Dove,1,0.31092185,0.31092185
+216.0,219.0,Sturnus vulgaris_Common Starling,1,0.42127532,0.42127532
+216.0,219.0,Carduelis carduelis_European Goldfinch,1,0.26536942,0.26536942
+216.0,219.0,Streptopelia decaocto_Eurasian Collared Dove,1,0.25912133,0.25912133
+219.0,222.0,Carduelis carduelis_European Goldfinch,1,0.9097496,0.9097496
+222.0,225.0,Carduelis carduelis_European Goldfinch,1,0.47766426,0.47766426
+222.0,225.0,Sturnus vulgaris_Common Starling,1,0.20790449,0.20790449
+222.0,225.0,Sturnus unicolor_Spotless Starling,1,0.100120276,0.100120276
+225.0,228.0,Carduelis carduelis_European Goldfinch,1,0.65206057,0.65206057
+228.0,231.0,Carduelis carduelis_European Goldfinch,1,0.52084166,0.52084166
+231.0,234.0,Passer domesticus_House Sparrow,1,0.24654746,0.24654746
+231.0,234.0,Carduelis carduelis_European Goldfinch,1,0.21012872,0.21012872
+231.0,234.0,Serinus serinus_European Serin,1,0.12622753,0.12622753
+234.0,237.0,Passer domesticus_House Sparrow,1,0.27458426,0.27458426

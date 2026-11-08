@@ -1,0 +1,14 @@
+species_name,detection_count,mean_confidence,max_confidence,first_seen_seconds,last_seen_seconds
+Carduelis carduelis_European Goldfinch,23,0.4746246,0.9097496,3.0,234.0
+Streptopelia decaocto_Eurasian Collared Dove,28,0.34605128,0.9001168,0.0,219.0
+Cicada orni_Ash Cicada,58,0.4521522,0.8009518,9.0,195.0
+Sturnus vulgaris_Common Starling,15,0.33917242,0.56356484,132.0,225.0
+Passer domesticus_House Sparrow,45,0.23336521,0.5442,0.0,236.125
+Catharus minimus_Grey-cheeked Thrush,1,0.3217144,0.3217144,24.0,27.0
+Pica pica_Eurasian Magpie,1,0.21238026,0.21238026,210.0,213.0
+Prinia flaviventris_Yellow-bellied Prinia,1,0.19097182,0.19097182,138.0,141.0
+Columba livia_Rock Dove,1,0.16833368,0.16833368,27.0,30.0
+Columba palumbus_Common Wood Pigeon,1,0.16757083,0.16757083,204.0,207.0
+Spizella pusilla_Field Sparrow,1,0.1431705,0.1431705,0.0,3.0
+Serinus serinus_European Serin,1,0.12622753,0.12622753,231.0,234.0
+Sturnus unicolor_Spotless Starling,1,0.100120276,0.100120276,222.0,225.0
